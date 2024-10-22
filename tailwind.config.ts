@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
@@ -11,6 +10,10 @@ module.exports = {
       fontFamily: {
         irish: ["var(--font-irish)"],
         mont: ["var(--font-mont)"],
+      },
+      colors: {
+        primary: "#032629",
+        secondary: "#9ECB63",
       },
       borderRadius: {
         "4xl": "32px",
