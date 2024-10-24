@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   ParallaxBanner,
   ParallaxBannerLayer,
@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import bukit from "@/public/parallax/bukit.png";
+import bukit from "@/public/parallax/bukit2.png";
 import gunung from "@/public/parallax/gunung.png";
 import langit from "@/public/parallax/langit2.jpg";
 import tanaman from "@/public/parallax/tanaman.png";
@@ -26,6 +26,24 @@ const ParallaxHero: React.FC = () => {
 function Content() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 50], [1, 0]);
+  const tanamanTranslateX = useTransform(scrollY, [0, 120], [0, -160]);
+  const tanamanScale = useTransform(scrollY, [0, 120], [1, 1.3]);
+
+  const tanamanRef = useRef<HTMLDivElement>(null);
+  const [tanamanHeight, setTanamanHeight] = useState(0);
+
+  useEffect(() => {
+    if (tanamanRef.current) {
+      setTanamanHeight(tanamanRef.current.offsetHeight);
+    }
+  }, []);
+
+  const tanamanTranslateY = useTransform(
+    scrollY,
+    [0, 130, 131, 320],
+    [0, 130, 130, -tanamanHeight],
+    { clamp: false }
+  );
 
   return (
     <div className="relative">
@@ -61,23 +79,29 @@ function Content() {
           shouldAlwaysCompleteAnimation={true}
           className="z-10"
         >
-          <div className="absolute inset-x-0 bottom-5">
+          <div className="absolute inset-x-0 -bottom-5">
             <Image src={bukit} alt="Hill" layout="responsive" priority />
           </div>
         </ParallaxBannerLayer>
 
-        {/* Layer 3 (Tanaman) */}
+        {/* Layer 3 (Tanaman) - Combined animation */}
         <ParallaxBannerLayer
-          translateX={[0, -50]}
           translateY={[0, 30]}
-          scale={[1, 3]}
           speed={1}
           shouldAlwaysCompleteAnimation={true}
-          className="z-10"
+          className="z-20"
         >
-          <div className="absolute inset-x-0 bottom-0 ">
+          <motion.div
+            ref={tanamanRef}
+            className="absolute inset-x-0 bottom-0"
+            style={{
+              translateX: tanamanTranslateX,
+              translateY: tanamanTranslateY,
+              scale: tanamanScale,
+            }}
+          >
             <Image src={tanaman} alt="Plants" layout="responsive" priority />
-          </div>
+          </motion.div>
         </ParallaxBannerLayer>
 
         {/* Text Overlay */}
@@ -85,7 +109,7 @@ function Content() {
           speed={-80}
           translateY={[-38, 45]}
           scale={[0.1, 2.5]}
-          className="z-20"
+          className="z-10"
         >
           <div className="absolute inset-0 flex items-center justify-center flex-col">
             <h1 className="text-8xl font-irish text-primary text-center drop-shadow-lg">
