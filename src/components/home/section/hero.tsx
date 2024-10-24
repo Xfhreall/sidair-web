@@ -8,12 +8,14 @@ import {
 } from "react-scroll-parallax";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
+// Assume these imports are correct and the images are available
 import bukit from "@/public/parallax/bukit2.png";
 import gunung from "@/public/parallax/gunung.png";
 import langit from "@/public/parallax/langit2.jpg";
 import tanaman from "@/public/parallax/tanaman.png";
-import { Button } from "@/components/ui/button";
 
 const ParallaxHero: React.FC = () => {
   return (
@@ -28,7 +30,6 @@ function Content() {
   const opacity = useTransform(scrollY, [0, 50], [1, 0]);
   const tanamanTranslateX = useTransform(scrollY, [0, 120], [0, -160]);
   const tanamanScale = useTransform(scrollY, [0, 120], [1, 1.3]);
-
   const tanamanRef = useRef<HTMLDivElement>(null);
   const [tanamanHeight, setTanamanHeight] = useState(0);
 
@@ -41,13 +42,13 @@ function Content() {
   const tanamanTranslateY = useTransform(
     scrollY,
     [0, 130, 131, 320],
-    [0, 130, 130, -tanamanHeight],
+    [0, 130, 130, -tanamanHeight - 4],
     { clamp: false }
   );
 
   return (
     <div className="relative">
-      <ParallaxBanner className="h-[140vh] flex justify-center items-center relative">
+      <ParallaxBanner className="h-[140dvh] flex justify-center items-center relative">
         {/* Background (Langit) */}
         <ParallaxBannerLayer speed={-20}>
           <Image
@@ -67,7 +68,7 @@ function Content() {
           speed={-15}
           shouldAlwaysCompleteAnimation={true}
         >
-          <div className="absolute inset-x-0 bottom-8">
+          <div className="absolute inset-x-0 bottom-0">
             <Image src={gunung} alt="Mountain" layout="responsive" priority />
           </div>
         </ParallaxBannerLayer>
@@ -107,18 +108,25 @@ function Content() {
         {/* Text Overlay */}
         <ParallaxBannerLayer
           speed={-80}
-          translateY={[-38, 45]}
+          translateY={[-40, 45]}
           scale={[0.1, 2.5]}
-          className="z-10"
         >
           <div className="absolute inset-0 flex items-center justify-center flex-col">
             <h1 className="text-8xl font-irish text-primary text-center drop-shadow-lg">
               SIDAIR
             </h1>
+          </div>
+        </ParallaxBannerLayer>
+
+        {/* Button Layer */}
+        <ParallaxBannerLayer className="z-40">
+          <div className="absolute inset-0 flex items-center justify-center">
             <motion.div style={{ opacity }}>
-              <Button className="text-white w-[200px] h-12 font-bold mt-6 rounded-full scale-105 bg-primary hover:bg-opacity-90 transition-all shadow-lg">
-                Hubungkan
-              </Button>
+              <Link href="#about" className="z-50">
+                <Button className="text-white w-[200px] h-12 font-bold rounded-full scale-105 bg-primary hover:bg-opacity-90 transition-all shadow-lg">
+                  Hubungkan
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </ParallaxBannerLayer>
@@ -128,7 +136,7 @@ function Content() {
           speed={1}
           opacity={[0.8, 1]}
           shouldAlwaysCompleteAnimation={false}
-          className="z-0"
+          className="z-25"
         >
           <div className="absolute bottom-80 w-full text-center">
             <p className="text-5xl font-irish text-primary drop-shadow-md">

@@ -3,7 +3,7 @@ import type { FC } from "react";
 
 const About: FC = () => {
   return (
-    <section className="py-20 bg-primary h-screen">
+    <section className="py-20 bg-primary h-screen" id="about">
       <div className="container mx-auto px-4 my-auto h-full flex flex-col justify-center">
         <h2 className="text-8xl font-irish text-center mb-10 bg-gradient-to-t from-[#2A503B] to-[#CFFF75] text-transparent bg-clip-text drop-shadow-[0_4px_4px_rgba(42,80,59,0.8)]">
           ABOUT SIDAIR
