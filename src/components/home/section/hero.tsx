@@ -84,7 +84,7 @@ function Content() {
         <ParallaxBannerLayer
           speed={-80}
           translateY={[-38, 45]}
-          scale={[1, 1.5]}
+          scale={[0.1, 2.5]}
           className="z-20"
         >
           <div className="absolute inset-0 flex items-center justify-center flex-col">
