@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Irish_Grover, Montserrat } from "next/font/google";
 import "./globals.css";
+import { AOSInit } from "@/lib/aos";
 
 const irish = Irish_Grover({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AOSInit />
       <body className={`${irish.variable} ${montserrat.variable} antialiased`}>
         {children}
       </body>
