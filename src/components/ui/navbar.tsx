@@ -3,7 +3,7 @@ import React from "react";
 import type { FC } from "react";
 const Navbar: FC = () => {
   return (
-    <main className="text-primary fixed top-0 bg-transparent w-full z-10">
+    <main className="text-primary fixed top-0 bg-transparent w-full z-50">
       <nav className="flex  items-center justify-around py-4 px-12 font-irish relative">
         <div>
           <h1 className="text-2xl uppercase">Sidair</h1>
