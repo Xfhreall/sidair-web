@@ -1,7 +1,5 @@
 import React from "react";
 import type { FC } from "react";
-// import water from "@/public/fragment/water.svg";
-// import Image from "next/image";
 
 const About: FC = () => {
   return (
@@ -20,7 +18,6 @@ const About: FC = () => {
           </p>
         </div>
       </div>
-      {/* <Image src={water} alt="..." className="absolute -bottom-20 z-0" /> */}
     </section>
   );
 };

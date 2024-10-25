@@ -28,8 +28,16 @@ const ParallaxHero: React.FC = () => {
 function Content() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 50], [1, 0]);
-  const tanamanTranslateX = useTransform(scrollY, [0, 120], [0, -160]);
-  const tanamanScale = useTransform(scrollY, [0, 120], [1, 1.3]);
+  const tanamanTranslateX = useTransform(
+    scrollY,
+    [0, 130, 131, 220],
+    [0, -160, -160, -30]
+  );
+  const tanamanScale = useTransform(
+    scrollY,
+    [0, 130, 131, 220],
+    [1, 1.3, 1.3, 1.8]
+  );
   const tanamanRef = useRef<HTMLDivElement>(null);
   const [tanamanHeight, setTanamanHeight] = useState(0);
 
@@ -41,10 +49,14 @@ function Content() {
 
   const tanamanTranslateY = useTransform(
     scrollY,
-    [0, 130, 131, 320],
-    [0, 130, 130, -tanamanHeight - 4],
+    [0, 130, 131, 240],
+    [0, 130, 130, -tanamanHeight + 37],
     { clamp: false }
   );
+
+  // New transforms for text and description overlays
+  const textOverlayY = useTransform(scrollY, [130, 200], [1, 0]);
+  const descOverlayY = useTransform(scrollY, [130, 200], [1, 0]);
 
   return (
     <div className="relative">
@@ -111,11 +123,14 @@ function Content() {
           translateY={[-40, 45]}
           scale={[0.1, 2.5]}
         >
-          <div className="absolute inset-0 flex items-center justify-center flex-col">
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center flex-col"
+            style={{ opacity: textOverlayY }}
+          >
             <h1 className="text-8xl font-irish text-primary text-center drop-shadow-lg">
               SIDAIR
             </h1>
-          </div>
+          </motion.div>
         </ParallaxBannerLayer>
 
         {/* Button Layer */}
@@ -138,11 +153,14 @@ function Content() {
           shouldAlwaysCompleteAnimation={false}
           className="z-25"
         >
-          <div className="absolute bottom-80 w-full text-center">
+          <motion.div
+            className="absolute bottom-80 w-full text-center"
+            style={{ opacity: descOverlayY }}
+          >
             <p className="text-5xl font-irish text-primary drop-shadow-md">
               Sistem Deteksi Air Filtrasi Irigasi
             </p>
-          </div>
+          </motion.div>
         </ParallaxBannerLayer>
       </ParallaxBanner>
     </div>

@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from "react";
 import type { FC } from "react";
 import Image from "next/image";
-import soil from "@/public/background/watesqy.svg";
+import quake from "@/public/background/summary.svg";
 
-const Watesqy: FC = () => {
+const Summary: FC = () => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = soil.src;
+    img.src = quake.src;
     img.onload = () => {
       setImageHeight(img.height);
     };
@@ -18,12 +18,12 @@ const Watesqy: FC = () => {
 
   return (
     <section
-      className="w-full relative overflow-hidden -mt-48 flex flex-col items-center"
+      className="w-full relative overflow-hidden -mt-72 flex flex-col items-center"
       style={{ minHeight: imageHeight ? `${imageHeight}px` : "100vh" }}
     >
       <Image
-        src={soil}
-        alt="Soil background"
+        src={quake}
+        alt="quake background"
         fill
         sizes="100vw"
         style={{
@@ -39,4 +39,4 @@ const Watesqy: FC = () => {
   );
 };
 
-export default Watesqy;
+export default Summary;
