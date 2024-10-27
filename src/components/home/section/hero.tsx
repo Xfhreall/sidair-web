@@ -11,7 +11,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-// Assume these imports are correct and the images are available
 import bukit from "@/public/parallax/bukit2.png";
 import gunung from "@/public/parallax/gunung.png";
 import langit from "@/public/parallax/langit2.jpg";
@@ -28,39 +27,53 @@ const ParallaxHero: React.FC = () => {
 function Content() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 50], [1, 0]);
-  const tanamanTranslateX = useTransform(
-    scrollY,
-    [0, 130, 131, 220],
-    [0, -160, -160, -30]
-  );
-  const tanamanScale = useTransform(
-    scrollY,
-    [0, 130, 131, 220],
-    [1, 1.3, 1.3, 1.8]
-  );
+  const sectionRef = useRef<HTMLDivElement>(null);
   const tanamanRef = useRef<HTMLDivElement>(null);
   const [tanamanHeight, setTanamanHeight] = useState(0);
+  const [sectionHeight, setSectionHeight] = useState(0);
 
   useEffect(() => {
     if (tanamanRef.current) {
       setTanamanHeight(tanamanRef.current.offsetHeight);
     }
+    if (sectionRef.current) {
+      setSectionHeight(sectionRef.current.offsetHeight);
+    }
   }, []);
 
+  const endPoint = sectionHeight - window.innerHeight;
+
+  const tanamanTranslateX = useTransform(
+    scrollY,
+    [0, endPoint * 0.6, endPoint * 0.6 + 1, endPoint],
+    [0, -160, -160, -30]
+  );
+  const tanamanScale = useTransform(
+    scrollY,
+    [0, endPoint * 0.6, endPoint * 0.6 + 1, endPoint],
+    [1, 1.3, 1.3, 1.8]
+  );
   const tanamanTranslateY = useTransform(
     scrollY,
-    [0, 130, 131, 240],
-    [0, 130, 130, -tanamanHeight + 37],
-    { clamp: false }
+    [0, endPoint * 0.6, endPoint * 0.6 + 1, endPoint, endPoint * 1.5],
+    [0, 130, 130, -tanamanHeight + 100, tanamanHeight * 2],
+    { clamp: true }
   );
 
-  // New transforms for text and description overlays
-  const textOverlayY = useTransform(scrollY, [130, 200], [1, 0]);
-  const descOverlayY = useTransform(scrollY, [130, 200], [1, 0]);
+  const textOverlayY = useTransform(
+    scrollY,
+    [endPoint * 0.6, endPoint * 0.9],
+    [1, 0]
+  );
+  const descOverlayY = useTransform(
+    scrollY,
+    [endPoint * 0.6, endPoint * 0.9],
+    [1, 0]
+  );
 
   return (
-    <div className="relative">
-      <ParallaxBanner className="h-[140dvh] flex justify-center items-center relative">
+    <div className="relative" ref={sectionRef}>
+      <ParallaxBanner className="h-[120vh] md:h-[140dvh] flex justify-center items-center relative">
         {/* Background (Langit) */}
         <ParallaxBannerLayer speed={-20}>
           <Image
@@ -80,7 +93,7 @@ function Content() {
           speed={-15}
           shouldAlwaysCompleteAnimation={true}
         >
-          <div className="absolute inset-x-0 bottom-0">
+          <div className="absolute inset-x-0 md:bottom-56 lg:bottom-0 bottom-64 sm:bottom-48 scale-[1.5] sm:scale-105 lg:scale-100">
             <Image src={gunung} alt="Mountain" layout="responsive" priority />
           </div>
         </ParallaxBannerLayer>
@@ -92,7 +105,7 @@ function Content() {
           shouldAlwaysCompleteAnimation={true}
           className="z-10"
         >
-          <div className="absolute inset-x-0 -bottom-5">
+          <div className="absolute inset-x-0 lg:-bottom-5 sm:bottom-40 bottom-52">
             <Image src={bukit} alt="Hill" layout="responsive" priority />
           </div>
         </ParallaxBannerLayer>
@@ -106,14 +119,20 @@ function Content() {
         >
           <motion.div
             ref={tanamanRef}
-            className="absolute inset-x-0 bottom-0"
+            className="absolute inset-x-0 bottom-32 md:bottom-36 lg:bottom-0"
             style={{
               translateX: tanamanTranslateX,
               translateY: tanamanTranslateY,
               scale: tanamanScale,
             }}
           >
-            <Image src={tanaman} alt="Plants" layout="responsive" priority />
+            <Image
+              src={tanaman}
+              alt="Plants"
+              layout="responsive"
+              priority
+              className="scale-[2.5] sm:scale-150 md:scale-125 lg:scale-100"
+            />
           </motion.div>
         </ParallaxBannerLayer>
 
@@ -124,10 +143,10 @@ function Content() {
           scale={[0.1, 2.5]}
         >
           <motion.div
-            className="absolute inset-0 flex items-center justify-center flex-col"
+            className="absolute inset-0 flex items-center justify-center"
             style={{ opacity: textOverlayY }}
           >
-            <h1 className="text-8xl font-irish text-primary text-center drop-shadow-lg">
+            <h1 className="text-6xl sm:text-6xl md:text-8xl lg:text-8xl xl:text-9xl font-irish text-primary text-center drop-shadow-lg">
               SIDAIR
             </h1>
           </motion.div>
@@ -138,7 +157,7 @@ function Content() {
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div style={{ opacity }}>
               <Link href="#about" className="z-50">
-                <Button className="text-white w-[200px] h-12 font-bold rounded-full scale-105 bg-primary hover:bg-opacity-90 transition-all shadow-lg">
+                <Button className="text-white w-[150px] sm:w-[180px] md:w-[200px] h-10 sm:h-11 md:h-12 text-sm sm:text-base md:text-lg font-bold rounded-full bg-primary hover:bg-opacity-90 transition-all shadow-lg mt-8 md:mt-0">
                   Hubungkan
                 </Button>
               </Link>
@@ -151,13 +170,13 @@ function Content() {
           speed={1}
           opacity={[0.8, 1]}
           shouldAlwaysCompleteAnimation={false}
-          className="z-25"
+          className="z-[5]"
         >
           <motion.div
-            className="absolute bottom-80 w-full text-center"
+            className="absolute bottom-80 md:bottom-96 lg:bottom-80 w-full text-center px-4"
             style={{ opacity: descOverlayY }}
           >
-            <p className="text-5xl font-irish text-primary drop-shadow-md">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-irish text-primary drop-shadow-md">
               Sistem Deteksi Air Filtrasi Irigasi
             </p>
           </motion.div>

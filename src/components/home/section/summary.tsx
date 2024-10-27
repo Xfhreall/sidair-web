@@ -18,7 +18,7 @@ const Summary: FC = () => {
 
   return (
     <section
-      className="w-full relative overflow-hidden -mt-72 flex flex-col items-center"
+      className="w-full relative overflow-hidden -mt-80 flex flex-col items-center"
       style={{ minHeight: imageHeight ? `${imageHeight}px` : "100vh" }}
     >
       <Image

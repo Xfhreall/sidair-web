@@ -11,8 +11,8 @@ export default function Page() {
       <Hero />
       <About />
       <Watesqy />
-      <Summary />
-      <Filtrasi />
+      {/* <Summary />
+      <Filtrasi /> */}
     </>
   );
 }
