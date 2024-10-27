@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         primary: "#032629",
         secondary: "#9ECB63",
+        nav: "#C6E3D1",
       },
       borderRadius: {
         "4xl": "32px",
