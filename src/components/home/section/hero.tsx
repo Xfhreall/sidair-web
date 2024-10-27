@@ -31,17 +31,26 @@ function Content() {
   const tanamanRef = useRef<HTMLDivElement>(null);
   const [tanamanHeight, setTanamanHeight] = useState(0);
   const [sectionHeight, setSectionHeight] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
-    if (tanamanRef.current) {
-      setTanamanHeight(tanamanRef.current.offsetHeight);
-    }
-    if (sectionRef.current) {
-      setSectionHeight(sectionRef.current.offsetHeight);
-    }
+    const updateHeights = () => {
+      if (tanamanRef.current) {
+        setTanamanHeight(tanamanRef.current.offsetHeight);
+      }
+      if (sectionRef.current) {
+        setSectionHeight(sectionRef.current.offsetHeight);
+      }
+      setWindowHeight(window.innerHeight);
+    };
+
+    updateHeights();
+    window.addEventListener("resize", updateHeights);
+
+    return () => window.removeEventListener("resize", updateHeights);
   }, []);
 
-  const endPoint = sectionHeight - window.innerHeight;
+  const endPoint = sectionHeight - windowHeight;
 
   const tanamanTranslateX = useTransform(
     scrollY,
