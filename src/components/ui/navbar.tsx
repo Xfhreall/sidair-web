@@ -1,12 +1,22 @@
 import Link from "next/link";
 import React from "react";
-import type { FC } from "react";
-const Navbar: FC = () => {
+
+export default function Component() {
   return (
-    <main className="text-primary fixed top-0 bg-transparent w-full z-50">
-      <nav className="flex  items-center justify-around py-4 px-12 font-irish relative">
+    <header
+      className="fixed top-0 w-full z-50"
+      data-aos="fade-down"
+      data-aos-offset="1400"
+    >
+      <div
+        className="absolute inset-0 backdrop-blur-md pointer-events-none"
+        aria-hidden="true"
+      />
+      <nav className="flex text-white items-center justify-around py-4 px-12 font-irish relative z-10">
         <div>
-          <h1 className="text-2xl uppercase">Sidair</h1>
+          <Link href="/">
+            <h1 className="text-2xl uppercase ">Sidair</h1>
+          </Link>
         </div>
         <ul className="flex ml-auto gap-20 text-xl">
           <li>
@@ -20,8 +30,6 @@ const Navbar: FC = () => {
           </li>
         </ul>
       </nav>
-    </main>
+    </header>
   );
-};
-
-export default Navbar;
+}
