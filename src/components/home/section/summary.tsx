@@ -33,11 +33,11 @@ export default function Component() {
     return (
       <div className={`relative ${className}`}>
         <Image src={image} alt={title} layout="fill" objectFit="contain" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2">
-          <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-irish text-[#C4A484]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-0 sm:space-y-2">
+          <h2 className="text-xs sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-irish text-[#C4A484]">
             {title}
           </h2>
-          <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-[#C4A484]">
+          <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#C4A484]">
             {value}
           </p>
         </div>
@@ -68,11 +68,11 @@ export default function Component() {
         className="z-0"
       />
 
-      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full">
-        <h1 className="text-4xl lg:text-7xl xl:text-8xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
+      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full-translate-y-1/2">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
           DATA SUMMARY
         </h1>
-        <p className="text-3xl lg:text-6xl xl:text-7xl font-bold text-[#B3A088] mb-8">
+        <p className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-[#B3A088] mb-8">
           36.5 C
         </p>
         <div className="grid grid-cols-2 w-11/12 sm:w-10/12 md:w-9/12 lg:w-9/12 xl:w-9/12 mx-auto">
@@ -80,25 +80,25 @@ export default function Component() {
             image={ph}
             title="pH"
             value="4.57"
-            className="aspect-square w-[calc(var(--block-base-size)*1.4)] h-[calc(var(--block-base-size)*1.1)] translate-x-1/3"
+            className="aspect-square w-[calc(var(--block-base-size)*2)] h-[calc(var(--block-base-size))]"
           />
           <DataBlock
             image={ec}
             title="Electrical Conductivity"
             value="0.11"
-            className="aspect-[3/2] w-[calc(var(--block-base-size)*3)] h-[calc(var(--block-base-size)*1.1)]"
+            className="aspect-[3/2] w-[calc(var(--block-base-size)*3)] h-[calc(var(--block-base-size))] -translate-x-8"
           />
           <DataBlock
             image={tds}
             title="TDS Meter"
             value="121.87"
-            className="aspect-square w-[calc(var(--block-base-size)*2)] h-[calc(var(--block-base-size)*1.1)] translate-x-12"
+            className="aspect-square w-[calc(var(--block-base-size)*2)] h-[calc(var(--block-base-size))]"
           />
           <DataBlock
             image={ppm}
             title="PPM"
             value="100.57"
-            className="aspect-square w-[calc(var(--block-base-size)*2.2)] h-[calc(var(--block-base-size)*1.1)] translate-x-12"
+            className="aspect-square w-[calc(var(--block-base-size)*2.2)] h-[calc(var(--block-base-size))]"
           />
         </div>
       </div>
