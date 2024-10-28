@@ -7,6 +7,7 @@ import ph from "@/public/fragment/batuPh.svg";
 import ec from "@/public/fragment/batuEc.svg";
 import tds from "@/public/fragment/batuTds.svg";
 import ppm from "@/public/fragment/batuPpm.svg";
+import water from "@/public/fragment/waterEnd.svg";
 
 export default function Component() {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
@@ -47,14 +48,22 @@ export default function Component() {
 
   return (
     <section
-      className="w-full relative overflow-hidden flex flex-col items-center justify-center z-40 -translate-y-1/3"
+      className="w-full relative flex flex-col items-center justify-center z-40 -translate-y-56"
       style={
         {
           minHeight: imageHeight ? `${imageHeight}px` : "100vh",
           "--block-base-size": "min(20vw, 200px)",
         } as React.CSSProperties
       }
+      id="summary"
     >
+      <Image
+        src={water}
+        alt="Water background"
+        fill
+        objectPosition="bottom"
+        className="absolute object-contain z-[48] translate-y-1/4"
+      />
       <Image
         src={quake}
         alt="Cracked earth background"
@@ -68,14 +77,14 @@ export default function Component() {
         className="z-0"
       />
 
-      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full-translate-y-1/2">
+      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full -translate-y-1/2 sm:-translate-y-1/4">
         <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
           DATA SUMMARY
         </h1>
         <p className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-[#B3A088] mb-8">
           36.5 C
         </p>
-        <div className="grid grid-cols-2 w-11/12 sm:w-10/12 md:w-9/12 lg:w-9/12 xl:w-9/12 mx-auto">
+        <div className="grid grid-cols-2 w-11/12 sm:w-10/12 md:w-9/12 lg:w-9/12 xl:w-9/12 mx-auto space-y-4">
           <DataBlock
             image={ph}
             title="pH"

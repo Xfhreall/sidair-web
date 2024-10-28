@@ -25,19 +25,6 @@ export default function Watesqy() {
     img.onload = () => {
       setImageHeight(img.height);
     };
-
-    const handleScroll = () => {
-      if (sectionRef.current && swiperRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
-        if (isInView) {
-          swiperRef.current.slideNext();
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const slides = [
@@ -77,8 +64,12 @@ export default function Watesqy() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden flex items-center justify-center z-30 -translate-y-56"
-      style={{ minHeight: imageHeight ? `${imageHeight}px` : "100vh" }}
+      className="w-full relative overflow-hidden flex items-center justify-center z-30 -translate-y-32"
+      style={{
+        minHeight: imageHeight ? `${imageHeight}px` : "100vh",
+        objectFit: "contain",
+      }}
+      id="watesqy"
     >
       <Image
         src={soil}

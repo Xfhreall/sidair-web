@@ -1,10 +1,9 @@
 import React from "react";
 import type { FC } from "react";
-
 const About: FC = () => {
   return (
     <section
-      className="py-20 bg-primary h-screen relative w-full rounded-t-4xl -translate-y-6 z-20"
+      className="py-20 bg-primary h-[80vh] md:h-screen relative w-full rounded-t-4xl -translate-y-6 z-20"
       id="about"
     >
       <div className="container mx-auto px-4 my-auto h-full flex flex-col justify-center">
