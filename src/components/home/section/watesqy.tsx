@@ -105,8 +105,8 @@ export default function Watesqy() {
             nextEl: ".swiper-button-next",
           }}
           autoplay={{
-            delay: 8000,
-            disableOnInteraction: true,
+            delay: 5000,
+            disableOnInteraction: false,
           }}
           loop={true}
           spaceBetween={100}

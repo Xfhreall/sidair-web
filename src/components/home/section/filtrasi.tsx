@@ -18,7 +18,7 @@ const Filtrasi: FC = () => {
 
   return (
     <section
-      className="w-full relative overflow-hidden -mt-[800px] flex flex-col items-center"
+      className="w-full relative overflow-hidden -mt-[800px] flex flex-col items-center -translate-y-1/2 z-[45]"
       style={{ minHeight: imageHeight ? `${imageHeight}px` : "100vh" }}
     >
       <Image
