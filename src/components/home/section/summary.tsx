@@ -35,7 +35,7 @@ export default function Component() {
       <div className={`relative ${className}`}>
         <Image src={image} alt={title} layout="fill" objectFit="contain" />
         <div className="absolute inset-0 flex flex-col items-center justify-center space-y-0 sm:space-y-2">
-          <h2 className="text-xs sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-irish text-[#C4A484]">
+          <h2 className="text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-irish text-[#C4A484]">
             {title}
           </h2>
           <p className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#C4A484]">
@@ -78,10 +78,10 @@ export default function Component() {
       />
 
       <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full -translate-y-1/2 sm:-translate-y-1/4">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
           DATA SUMMARY
         </h1>
-        <p className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-[#B3A088] mb-8">
+        <p className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-[#B3A088] mb-8">
           36.5 C
         </p>
         <div className="grid grid-cols-2 w-11/12 sm:w-10/12 md:w-9/12 lg:w-9/12 xl:w-9/12 mx-auto space-y-4">
