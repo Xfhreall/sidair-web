@@ -17,7 +17,7 @@ const Footer: FC = () => {
   }, []);
   return (
     <footer
-      className="h-[50vh] w-full relative z-[45] -translate-y-12"
+      className="h-[60vh] w-full relative"
       style={
         {
           minHeight: imageHeight ? `${imageHeight}px` : "100vh",
@@ -28,9 +28,17 @@ const Footer: FC = () => {
       <Image
         src={bg}
         alt="bg footer"
-        className="object-cover h-full w-full"
+        className="object-cover absolute h-full w-full scale-y-110 z-0"
         fill
       />
+      <div className="relative z-20 flex flex-col items-center md:items-start justify-center h-full text-center md:text-start ml-[10%] text-[#B6A396]">
+        <h1 className="font-irish text-6xl md:text-7xl lg:text-8xl mb-2">
+          SIDAIR
+        </h1>
+        <p className="font-irish text-lg md:text-xl lg:text-2xl drop-shadow-md">
+          Sistem Deteksi Air Filtrasi Irigasi
+        </p>
+      </div>
     </footer>
   );
 };

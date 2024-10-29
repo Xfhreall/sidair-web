@@ -6,7 +6,7 @@ export default function Component() {
     <header
       className="fixed top-0 w-full z-50"
       data-aos="fade-down"
-      data-aos-offset="1400"
+      data-aos-offset="1700"
     >
       <div
         className="absolute inset-0 backdrop-blur-md pointer-events-none"

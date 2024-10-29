@@ -4,10 +4,13 @@ import { FC, useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import filtrasi from "@/public/background/filtrasi.svg";
 import batu from "@/public/fragment/batuFil.svg";
+import dino1 from "@/public/fragment/dino1.svg";
+import dino2 from "@/public/fragment/dino2.svg";
+import dino3 from "@/public/fragment/dino3.svg";
 
 const Filtrasi: FC = () => {
   const [time, setTime] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const formatTime = useCallback((seconds: number) => {
@@ -20,63 +23,24 @@ const Filtrasi: FC = () => {
   }, []);
 
   useEffect(() => {
-    const totalTime = 5 * 3600;
-    const animationDuration = 5000;
+    let interval: NodeJS.Timeout | null = null;
 
-    let animationInterval: NodeJS.Timeout;
-    let countdownInterval: NodeJS.Timeout;
-
-    if (isAnimating) {
-      const startTime = Date.now();
-
-      animationInterval = setInterval(() => {
-        const elapsedTime = Date.now() - startTime;
-        const currentProgress = Math.min(elapsedTime / animationDuration, 1);
-        const animatedTime = Math.floor(currentProgress * totalTime);
-        setTime(animatedTime);
-
-        if (elapsedTime >= animationDuration) {
-          clearInterval(animationInterval);
-          setIsAnimating(false);
-        }
-      }, 16);
-    } else if (time > 0) {
-      countdownInterval = setInterval(() => {
-        setTime((prevTime) => {
-          if (prevTime > 0) return prevTime - 1;
-          clearInterval(countdownInterval);
-          return 0;
-        });
+    if (isActive) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
+    } else if (!isActive && time !== 0) {
+      if (interval) clearInterval(interval);
     }
 
     return () => {
-      clearInterval(animationInterval);
-      clearInterval(countdownInterval);
+      if (interval) clearInterval(interval);
     };
-  }, [isAnimating]);
+  }, [isActive, time]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsAnimating(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.9 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+  const toggleTimer = () => {
+    setIsActive(!isActive);
+  };
 
   const DataContent = () => {
     return (
@@ -86,8 +50,8 @@ const Filtrasi: FC = () => {
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl whitespace-nowrap">
               3
             </h2>
-            <span className="font-irish text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-2">
-              Liter/detik
+            <span className="font-irish text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4">
+              Liter/menit
             </span>
           </div>
           <div className="text-[#B3A088] text-center space-y-2 min-w-28 md:min-w-72">
@@ -108,7 +72,7 @@ const Filtrasi: FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative flex flex-col items-center justify-start h-screen"
+      className="w-full relative flex flex-col items-center justify-start h-[120vh]"
     >
       <Image
         src={filtrasi}
@@ -120,17 +84,20 @@ const Filtrasi: FC = () => {
         }}
         quality={100}
         priority
-        className="z-0"
+        className="z-0 scale-y-125"
       />
 
       {/* content */}
-      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full mt-16">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
+      <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full mt-[35%] sm:mt-[25%] md:mt-[20%] lg:mt-[15%]">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl mb-4 font-irish bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text">
           FILTRASI
         </h1>
-        <p className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text mb-8">
-          Mode Aktif
-        </p>
+        <button
+          onClick={toggleTimer}
+          className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text mb-8 cursor-pointer transition-transform hover:scale-105 focus:outline-none"
+        >
+          {isActive ? "Mode Aktif" : "Mode Tidak Aktif"}
+        </button>
         <div className="w-11/12 sm:w-10/12 md:w-9/12 lg:w-9/12 xl:w-9/12 mx-auto relative aspect-video">
           <Image
             src={batu}
@@ -143,6 +110,21 @@ const Filtrasi: FC = () => {
           <DataContent />
         </div>
       </div>
+      <Image
+        src={dino1}
+        alt="dino1"
+        className="absolute h-2/3 w-auto left-0 -top-10"
+      />
+      <Image
+        src={dino2}
+        alt="dino2"
+        className="absolute h-1/2 w-auto right-0 top-[10%]"
+      />
+      <Image
+        src={dino3}
+        alt="dino3"
+        className="absolute h-1/4 w-auto left-0 bottom-10"
+      />
     </section>
   );
 };

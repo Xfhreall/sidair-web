@@ -32,13 +32,13 @@ export default function Watesqy() {
       image: alat1,
       title: "WATESQY",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Nunc nisi enim porttitor adipiscing malesuada euismod sit nunc malesuada. Orci mauris fermentum nisl vel. Aliquam arcu pellentesque turpis scelerisque posuere est urna integer habitant.",
+        "Real-Time Water Monitoring using WATESQY, a multi-parameter device that measures: Temperature, pH levels, Turbidity, Electrical Conductivity, Total Dissolved Solids (TDS), Automated Data Transmission through Bluetooth and GSM for immediate feedback and alerts.",
     },
     {
       image: alat2,
       title: "WATESQY 2",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Nunc nisi enim porttitor adipiscing malesuada euismod sit nunc malesuada. Orci mauris fermentum nisl vel. Aliquam arcu pellentesque turpis scelerisque posuere est urna integer habitant.",
+        "Advanced Filtration Technology using DMI-65 to remove iron, manganese, and particulate matter from water sources without chemical additives, ensuring optimal filtration with minimal environmental impact.",
     },
   ];
 
@@ -113,7 +113,7 @@ export default function Watesqy() {
                   <Image
                     src={slide.image}
                     alt={`alat${index + 1}`}
-                    className="h-auto w-48 md:w-64"
+                    className="h-auto w-3/4 md:w-full object-right"
                   />
                 </div>
                 <div className="md:text-start text-center space-y-4 flex flex-col px-12 md:px-0">

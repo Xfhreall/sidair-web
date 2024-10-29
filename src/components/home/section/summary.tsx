@@ -48,7 +48,7 @@ export default function Component() {
 
   return (
     <section
-      className="w-full relative flex flex-col items-center justify-center z-40 -translate-y-56"
+      className="w-full relative flex flex-col items-center justify-center z-40 -translate-y-40"
       style={
         {
           minHeight: imageHeight ? `${imageHeight}px` : "100vh",
@@ -74,7 +74,7 @@ export default function Component() {
         }}
         quality={100}
         priority
-        className="z-0"
+        className="z-0 scale-y-125"
       />
 
       <div className="relative z-10 text-center text-[#C4A484] p-4 w-full h-full -translate-y-1/2 sm:-translate-y-1/4">
