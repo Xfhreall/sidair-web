@@ -30,13 +30,13 @@ export default function Watesqy() {
   const slides = [
     {
       image: alat1,
-      title: "WATESQY",
+      title: "SIDAIR",
       description:
-        "Real-Time Water Monitoring using WATESQY, a multi-parameter device that measures: Temperature, pH levels, Turbidity, Electrical Conductivity, Total Dissolved Solids (TDS), Automated Data Transmission through Bluetooth and GSM for immediate feedback and alerts.",
+        "Real-Time Water Monitoring using SIDAIR, a multi-parameter device that measures: Temperature, pH levels, Turbidity, Electrical Conductivity, Total Dissolved Solids (TDS), Automated Data Transmission through Bluetooth and GSM for immediate feedback and alerts.",
     },
     {
       image: alat2,
-      title: "WATESQY 2",
+      title: "DMI-65",
       description:
         "Advanced Filtration Technology using DMI-65 to remove iron, manganese, and particulate matter from water sources without chemical additives, ensuring optimal filtration with minimal environmental impact.",
     },

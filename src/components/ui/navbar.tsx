@@ -62,7 +62,7 @@ export default function Component() {
                   href="#watesqy"
                   onClick={toggleSlide}
                 >
-                  Watesqy
+                  Tools
                 </Link>
               </li>
               <li className="py-2 border-b-1.5 border-white">
@@ -84,7 +84,7 @@ export default function Component() {
               <Link href="#about">About</Link>
             </li>
             <li>
-              <Link href="#watesqy">Watesqy</Link>
+              <Link href="#watesqy">Tools</Link>
             </li>
             <li>
               <Link href="#summary">Summary</Link>
