@@ -4,6 +4,7 @@ import { useNavbar } from "../hooks/useNav";
 import Image from "next/image";
 import hamburger from "@/public/fragment/hamburger.png";
 import close from "@/public/fragment/close-btn.svg";
+import style from "@/components/style/navbar.module.css";
 
 export default function Component() {
   const { isOpen, toggleSlide } = useNavbar();
@@ -37,7 +38,7 @@ export default function Component() {
           onClick={toggleSlide}
         >
           <div
-            className={`z-50 flex flex-col w-1/2 h-full p-8 text-2xl md:text-3xl tracking-wider text-end bg-red-300`}
+            className={`z-50 flex flex-col w-1/2 h-full p-8 text-2xl md:text-3xl tracking-wider text-end ${style.slideNav}`}
           >
             <div className="flex justify-start">
               <span className="cursor-pointer w-max" onClick={toggleSlide}>
@@ -47,7 +48,7 @@ export default function Component() {
             <ul className="flex flex-col space-y-4 sm:space-y-8 mb-auto mt-8">
               <li className="py-2 border-b-1.5 border-white font-jaoren">
                 <Link
-                  className={`cursor-pointer`}
+                  className={`cursor-pointer text-base sm:text-2xl`}
                   href="#about"
                   onClick={toggleSlide}
                 >
@@ -56,7 +57,7 @@ export default function Component() {
               </li>
               <li className="py-2 border-b-1.5 border-white">
                 <Link
-                  className={`cursor-pointer`}
+                  className={`cursor-pointer text-base sm:text-2xl`}
                   href="#watesqy"
                   onClick={toggleSlide}
                 >
@@ -65,7 +66,7 @@ export default function Component() {
               </li>
               <li className="py-2 border-b-1.5 border-white">
                 <Link
-                  className={`cursor-pointer`}
+                  className={`cursor-pointer text-base sm:text-2xl`}
                   href="#summary"
                   onClick={toggleSlide}
                 >
