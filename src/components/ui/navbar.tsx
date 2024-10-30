@@ -39,6 +39,7 @@ export default function Component() {
         >
           <div
             className={`z-50 flex flex-col w-1/2 h-full p-8 text-2xl md:text-3xl tracking-wider text-end ${style.slideNav}`}
+            onClick={toggleSlide}
           >
             <div className="flex justify-start">
               <span className="cursor-pointer w-max" onClick={toggleSlide}>
