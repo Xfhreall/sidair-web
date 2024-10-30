@@ -12,6 +12,14 @@ const Filtrasi: FC = () => {
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const values = [2, 3.5, 5, 4, 1.3];
+
+  const getRandomValue = () => {
+    const randomIndex = Math.floor(Math.random() * values.length);
+    return values[randomIndex];
+  };
+
+  const [currentValue, setCurrentValue] = useState(getRandomValue());
 
   const formatTime = useCallback((seconds: number) => {
     const hours = Math.floor(seconds / 3600);
@@ -38,6 +46,14 @@ const Filtrasi: FC = () => {
     };
   }, [isActive, time]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentValue(getRandomValue());
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const toggleTimer = () => {
     setIsActive(!isActive);
   };
@@ -48,7 +64,7 @@ const Filtrasi: FC = () => {
         <div className="grid grid-cols-2 gap-10">
           <div className="text-[#B3A088] font-extrabold flex flex-row justify-end items-end gap-4">
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl whitespace-nowrap">
-              3
+              {currentValue.toFixed(1)}
             </h2>
             <span className="font-irish text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4">
               Liter/menit
@@ -95,7 +111,11 @@ const Filtrasi: FC = () => {
         </h1>
         <button
           onClick={toggleTimer}
-          className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold bg-gradient-to-t from-[#745329] to-[#B3A088] text-transparent bg-clip-text mb-8 cursor-pointer transition-transform hover:scale-105 focus:outline-none"
+          className={`text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold ${
+            isActive
+              ? "bg-gradient-to-t from-[#745329] to-[green] text-transparent bg-clip-text "
+              : "bg-gradient-to-t from-[#745329] to-[#8b0000] text-transparent bg-clip-text "
+          }mb-8 cursor-pointer transition-transform hover:scale-105 focus:outline-none`}
         >
           {isActive ? "Mode Aktif" : "Mode Tidak Aktif"}
         </button>

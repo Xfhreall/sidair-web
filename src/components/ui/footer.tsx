@@ -32,10 +32,10 @@ const Footer: FC = () => {
         fill
       />
       <div className="relative z-20 flex flex-col items-center md:items-start justify-center h-full text-center md:text-start ml-[10%] text-[#B6A396]">
-        <h1 className="font-irish text-6xl md:text-7xl lg:text-8xl mb-2">
+        <h1 className="font-irish text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-2">
           SIDAIR
         </h1>
-        <p className="font-irish text-lg md:text-xl lg:text-2xl drop-shadow-md">
+        <p className="font-irish text-base sm:text-lg md:text-xl lg:text-2xl drop-shadow-md">
           Sistem Deteksi Air Filtrasi Irigasi
         </p>
       </div>

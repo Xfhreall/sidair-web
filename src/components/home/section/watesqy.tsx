@@ -113,14 +113,16 @@ export default function Watesqy() {
                   <Image
                     src={slide.image}
                     alt={`alat${index + 1}`}
-                    className="h-auto w-3/4 md:w-full object-right"
+                    className="h-auto w-3/4 md:w-2/3 object-center"
                   />
                 </div>
                 <div className="md:text-start text-center space-y-4 flex flex-col px-12 md:px-0">
-                  <h2 className="text-6xl md:text-7xl font-irish bg-gradient-to-t from-[#080502] to-[#472812] text-transparent bg-clip-text drop-shadow-lg">
+                  <h2 className="text-4xl sm:text-6xl md:text-7xl font-irish bg-gradient-to-t from-[#080502] to-[#472812] text-transparent bg-clip-text drop-shadow-lg">
                     {slide.title}
                   </h2>
-                  <p className="text-lg md:text-xl">{slide.description}</p>
+                  <p className="text-base sm:text-lg md:text-xl">
+                    {slide.description}
+                  </p>
                   <div className="flex justify-center items-center mt-4 md:mt-8">
                     <button onClick={handlePrev}>
                       <ChevronLeft

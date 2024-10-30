@@ -18,7 +18,7 @@ export default function Component() {
         className="absolute inset-0 backdrop-blur-md pointer-events-none"
         aria-hidden="true"
       />
-      <div className="flex text-white items-center justify-around py-4 px-12 font-irish relative z-10">
+      <div className="flex text-white items-center justify-around py-4 px-6 md:px-12 font-irish relative z-10">
         <Link href="#hero">
           <h1 className="text-2xl uppercase ">Sidair</h1>
         </Link>
@@ -32,7 +32,7 @@ export default function Component() {
         </span>
         {/*nav mobile */}
         <div
-          className={`md:hidden font-jaoren fixed z-30 inset-0 right-0 flex justify-end w-full h-full transform transition-transform duration-300 ease-in-out ${
+          className={`md:hidden font-jaoren bg-black/20 fixed z-30 inset-0 right-0 flex justify-end w-full h-full transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={toggleSlide}
