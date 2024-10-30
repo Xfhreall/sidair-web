@@ -49,7 +49,7 @@ const Filtrasi: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentValue(getRandomValue());
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -60,17 +60,17 @@ const Filtrasi: FC = () => {
 
   const DataContent = () => {
     return (
-      <div className="absolute inset-0 flex items-start pt-6 sm:pt-10 lg:pt-16 justify-center overflow-x-hidden">
-        <div className="grid grid-cols-2 gap-10">
+      <div className="absolute inset-0 flex items-start pt-4 sm:pt-10 lg:pt-16 justify-center">
+        <div className="grid grid-cols-2 gap-2 sm:gap-8 md:gap-10 scale-80 sm:scale-100">
           <div className="text-[#B3A088] font-extrabold flex flex-row justify-end items-end gap-4">
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl whitespace-nowrap">
-              {currentValue.toFixed(1)}
+              {isActive ? currentValue.toFixed(1) : 0.0}
             </h2>
-            <span className="font-irish text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4">
+            <span className="font-irish text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
               Liter/menit
             </span>
           </div>
-          <div className="text-[#B3A088] text-center space-y-2 min-w-28 md:min-w-72">
+          <div className="text-[#B3A088] text-center space-y-2 ">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-irish mx-auto">
               Timer
             </h2>
@@ -88,7 +88,7 @@ const Filtrasi: FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative flex flex-col items-center justify-start h-[120vh]"
+      className="w-full relative flex flex-col items-center justify-start h-[120vh] overflow-hidden scale-y-105 -translate-y-4"
       id="filtrasi"
     >
       <Image
@@ -101,7 +101,7 @@ const Filtrasi: FC = () => {
         }}
         quality={100}
         priority
-        className="z-0 scale-y-125"
+        className="z-0"
       />
 
       {/* content */}
@@ -134,12 +134,12 @@ const Filtrasi: FC = () => {
       <Image
         src={dino1}
         alt="dino1"
-        className="absolute h-2/3 w-auto left-0 -top-10"
+        className="absolute h-1/3 md:h-2/3 w-auto -left-10 sm:-left-5 md:-left-0 top-20 md:-top-10"
       />
       <Image
         src={dino2}
         alt="dino2"
-        className="absolute h-1/2 w-auto right-0 top-[10%]"
+        className="absolute h-1/3 md:h-1/2 w-auto -right-[16%] sm:-right-[5%]  md:right-0 top-[15%] md:top-[10%]"
       />
       <Image
         src={dino3}

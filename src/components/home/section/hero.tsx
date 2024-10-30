@@ -85,7 +85,7 @@ function Content() {
         {/* Layer 1 (Gunung) */}
         <ParallaxBannerLayer speed={-15}>
           <motion.div
-            className="absolute inset-x-0 bottom-[30%]"
+            className="absolute inset-x-0 bottom-[50%] sm:bottom-[40%] md:bottom-[30%]"
             style={{
               translateY: gunungTranslateY,
               translateX: gunungTranslateX,
@@ -105,7 +105,7 @@ function Content() {
         {/* Layer 2 (Bukit) */}
         <ParallaxBannerLayer speed={-10} className="z-10">
           <motion.div
-            className="absolute inset-x-0 bottom-[27%]"
+            className="absolute inset-x-0 bottom-[45%] sm:bottom-[37%] md:bottom-[27%]"
             style={{
               translateY: gunungTranslateY,
               translateX: gunungTranslateX,
@@ -125,7 +125,7 @@ function Content() {
         {/* Layer 3 (Tanaman) */}
         <ParallaxBannerLayer className="z-20">
           <motion.div
-            className="absolute inset-x-0 bottom-[30%]"
+            className="absolute inset-x-0 bottom-[43%] sm:bottom-[35%] md:bottom-[30%]"
             style={{
               translateY: tanamanTranslateY,
               translateX: tanamanTranslateX,
@@ -152,12 +152,12 @@ function Content() {
               translateY: textTranslateY,
             }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-irish text-primary text-center drop-shadow-lg mb-4">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-irish text-primary text-center drop-shadow-lg mb-4">
               SIDAIR
             </h1>
             <motion.div style={{ opacity }}>
               <Link href="#filtrasi" className="z-50">
-                <Button className="text-white w-32 sm:w-40 md:w-52 h-10 sm:h-10 md:h-12 text-sm sm:text-base md:text-lg font-bold rounded-full bg-primary hover:bg-opacity-90 transition-all shadow-lg">
+                <Button className="text-white w-28 sm:w-40 md:w-52 h-8 sm:h-10 md:h-12 text-xs sm:text-base md:text-lg font-bold rounded-full bg-primary hover:bg-opacity-90 transition-all shadow-lg">
                   Hubungkan
                 </Button>
               </Link>

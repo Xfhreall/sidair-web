@@ -17,7 +17,7 @@ const Footer: FC = () => {
   }, []);
   return (
     <footer
-      className="h-[60vh] w-full relative"
+      className="h-[60vh] w-full relative scale-y-105 -translate-y-4"
       style={
         {
           minHeight: imageHeight ? `${imageHeight}px` : "100vh",

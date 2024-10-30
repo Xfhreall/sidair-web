@@ -48,10 +48,10 @@ export default function Component() {
 
   return (
     <section
-      className="w-full relative flex flex-col items-center justify-center z-40 -translate-y-40"
+      className="w-full relative flex flex-col items-center justify-center z-40 -translate-y-40 overflow-x-clip"
       style={
         {
-          minHeight: imageHeight ? `${imageHeight}px` : "100vh",
+          minHeight: imageHeight ? `${imageHeight}px ` : "100vh",
           "--block-base-size": "min(20vw, 200px)",
         } as React.CSSProperties
       }
@@ -62,7 +62,7 @@ export default function Component() {
         alt="Water background"
         fill
         objectPosition="bottom"
-        className="absolute object-contain z-[48] translate-y-1/4"
+        className="absolute object-contain z-[48] translate-y-[13.5%] sm:translate-y-[20%] md:translate-y-[18%] lg:translate-y-[25%] scale-110"
       />
       <Image
         src={quake}
