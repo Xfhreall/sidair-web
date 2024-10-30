@@ -73,6 +73,7 @@ const Filtrasi: FC = () => {
     <section
       ref={sectionRef}
       className="w-full relative flex flex-col items-center justify-start h-[120vh]"
+      id="filtrasi"
     >
       <Image
         src={filtrasi}

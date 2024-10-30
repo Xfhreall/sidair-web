@@ -64,7 +64,11 @@ function Content() {
   const textOpacity = useTransform(scrollY, [0, sectionHeight * 0.3], [1, 0]);
 
   return (
-    <div className="relative h-[200vh] overflow-hidden" ref={sectionRef}>
+    <div
+      className="relative h-[200vh] overflow-hidden"
+      ref={sectionRef}
+      id="hero"
+    >
       <ParallaxBanner className="h-full">
         {/* Background (Langit) */}
         <ParallaxBannerLayer speed={-20}>
@@ -152,7 +156,7 @@ function Content() {
               SIDAIR
             </h1>
             <motion.div style={{ opacity }}>
-              <Link href="#about" className="z-50">
+              <Link href="#filtrasi" className="z-50">
                 <Button className="text-white w-32 sm:w-40 md:w-52 h-10 sm:h-10 md:h-12 text-sm sm:text-base md:text-lg font-bold rounded-full bg-primary hover:bg-opacity-90 transition-all shadow-lg">
                   Hubungkan
                 </Button>
