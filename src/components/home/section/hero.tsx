@@ -85,7 +85,7 @@ function Content() {
         {/* Layer 1 (Gunung) */}
         <ParallaxBannerLayer speed={-15}>
           <motion.div
-            className="absolute inset-x-0 bottom-[50%] sm:bottom-[40%] md:bottom-[40%]"
+            className="absolute inset-x-0 bottom-[50%] sm:bottom-[40%] md:bottom-[30%]"
             style={{
               translateY: gunungTranslateY,
               translateX: gunungTranslateX,
@@ -97,7 +97,7 @@ function Content() {
               alt="Mountain"
               layout="responsive"
               priority
-              className="scale-[1.75] sm:scale-125 md:scale-125 lg:scale-100"
+              className="scale-[1.75] sm:scale-125 md:scale-110 lg:scale-100"
             />
           </motion.div>
         </ParallaxBannerLayer>
@@ -105,7 +105,7 @@ function Content() {
         {/* Layer 2 (Bukit) */}
         <ParallaxBannerLayer speed={-10} className="z-10">
           <motion.div
-            className="absolute inset-x-0 bottom-[45%] sm:bottom-[37%] md:bottom-[37%]"
+            className="absolute inset-x-0 bottom-[45%] sm:bottom-[37%] md:bottom-[27%]"
             style={{
               translateY: gunungTranslateY,
               translateX: gunungTranslateX,
@@ -125,7 +125,7 @@ function Content() {
         {/* Layer 3 (Tanaman) */}
         <ParallaxBannerLayer className="z-20">
           <motion.div
-            className="absolute inset-x-0 bottom-[45%] sm:bottom-[35%] md:bottom-[40%]"
+            className="absolute inset-x-0 bottom-[50%] sm:bottom-[35%] md:bottom-[30%]"
             style={{
               translateY: tanamanTranslateY,
               translateX: tanamanTranslateX,

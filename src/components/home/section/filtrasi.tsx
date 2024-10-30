@@ -134,12 +134,12 @@ const Filtrasi: FC = () => {
       <Image
         src={dino1}
         alt="dino1"
-        className="absolute h-1/3 md:h-2/3 w-auto -left-10 sm:-left-5 md:-left-0 top-20 md:-top-10"
+        className="absolute h-1/3 md:h-2/3 w-auto -left-10 sm:-left-5 md:-left-0 top-20 md:-top-10 scale-75 sm:scale-100"
       />
       <Image
         src={dino2}
         alt="dino2"
-        className="absolute h-1/3 md:h-1/2 w-auto -right-[16%] sm:-right-[5%]  md:right-0 top-[15%] md:top-[10%]"
+        className="absolute h-1/3 md:h-1/2 w-auto -right-[16%] sm:-right-[5%]  md:right-0 top-[15%] md:top-[10%]  scale-50 sm:scale-100"
       />
       <Image
         src={dino3}
