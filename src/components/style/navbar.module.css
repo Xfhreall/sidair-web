@@ -1,0 +1,8 @@
+.slideNav {
+  color: white;
+  background-image: url("../../../../public/svg/background/bg-slide.svg");
+  background-position: center;
+  background-size: cover;
+  fill: cornsilk;
+  opacity: 1;
+}

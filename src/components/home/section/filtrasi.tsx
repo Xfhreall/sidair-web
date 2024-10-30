@@ -44,7 +44,7 @@ const Filtrasi: FC = () => {
 
   const DataContent = () => {
     return (
-      <div className="absolute inset-0 flex items-start pt-6 sm:pt-10 lg:pt-16 justify-center">
+      <div className="absolute inset-0 flex items-start pt-6 sm:pt-10 lg:pt-16 justify-center overflow-x-hidden">
         <div className="grid grid-cols-2 gap-10">
           <div className="text-[#B3A088] font-extrabold flex flex-row justify-end items-end gap-4">
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl whitespace-nowrap">
